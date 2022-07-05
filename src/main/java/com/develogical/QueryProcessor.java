@@ -11,6 +11,20 @@ public class QueryProcessor {
 		if (query.toLowerCase().contains("name") || query.toLowerCase().contains("team")) {
 			return "atalay";
 		}
+		if (query.toLowerCase().contains("largest")) {
+			// query.matches("^\\s*(\\w+)\\s*\\(\\s*(\\d+)\\D+(\\d+)\D+\)\s*$");
+
+		}
+		// %20what%20is%2016%20plus%209"
+		if (query.toLowerCase().contains("plus")) {
+			int i = query.indexOf("plus", 0);
+			int j = query.indexOf("is", 0);
+			int first = Integer.parseInt((query).substring(j + 1, i));
+			int second = Integer.parseInt((query).substring(i + 3, query.length()));
+			int answer = first + second;
+			return Integer.toString(answer);
+
+		}
 		return "";
 	}
 }
