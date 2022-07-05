@@ -17,12 +17,17 @@ public class QueryProcessor {
 		}
 		// %20what%20is%2016%20plus%209"
 		if (query.toLowerCase().contains("plus")) {
-			int i = query.indexOf("plus", 0);
-			int j = query.indexOf("is", 0);
-			int first = Integer.parseInt((query).substring(j + 1, i));
-			int second = Integer.parseInt((query).substring(i + 3, query.length()));
-			int answer = first + second;
-			return Integer.toString(answer);
+//			int i = query.indexOf("plus", 0);
+//			int j = query.indexOf("is", 0);
+//			int first = Integer.parseInt((query).substring(j + 1, i));
+//			int second = Integer.parseInt((query).substring(i + 3, query.length()));
+//			int answer = first + second;
+
+			String[] numbers = query.split("\\d", 2);
+			int first1 = Integer.parseInt(numbers[0]);
+			int second1 = Integer.parseInt(numbers[1]);
+			int answer1 = first1 + second1;
+			return Integer.toString(answer1);
 
 		}
 		return "";
