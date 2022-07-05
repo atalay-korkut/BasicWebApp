@@ -8,21 +8,26 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class QueryProcessorTest {
 
-    QueryProcessor queryProcessor = new QueryProcessor();
+	QueryProcessor queryProcessor = new QueryProcessor();
 
-    @Test
-    public void returnsEmptyStringIfCannotProcessQuery() throws Exception {
-        assertThat(queryProcessor.process("test"), is(""));
-    }
+	@Test
+	public void returnsEmptyStringIfCannotProcessQuery() throws Exception {
+		assertThat(queryProcessor.process("test"), is(""));
+	}
 
-    @Test
-    public void knowsAboutShakespeare() throws Exception {
-        assertThat(queryProcessor.process("Shakespeare"), containsString("playwright"));
-    }
+	@Test
+	public void knowsAboutShakespeare() throws Exception {
+		assertThat(queryProcessor.process("Shakespeare"), containsString("playwright"));
+	}
 
-    @Test
-    public void isNotCaseSensitive() throws Exception {
-        assertThat(queryProcessor.process("shakespeare"), containsString("playwright"));
-    }
+	@Test
+	public void knowsAboutTeamName() throws Exception {
+		assertThat(queryProcessor.process("name"), containsString("atalay"));
+	}
+
+	@Test
+	public void isNotCaseSensitive() throws Exception {
+		assertThat(queryProcessor.process("shakespeare"), containsString("playwright"));
+	}
 
 }
